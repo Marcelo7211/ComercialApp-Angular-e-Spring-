@@ -1,0 +1,44 @@
+{{ oportunidade | json}}
+
+<p-panel header="Nova Oportunidade">
+    <div class="p-grid">
+        <div class="p-col-2">Descriçao</div>
+        <div class="p-col-2"><input type="text" pInputText [(ngModel)]="oportunidade.descricao"></div>
+    </div>
+
+    <div class="p-grid">
+        <div class="p-col-2">Nome Prospect</div>
+        <div class="p-col-2"><input type="text" pInputText [(ngModel)]="oportunidade.nomeProspecto"></div>
+    </div>
+
+    <div class="p-grid">
+        <div class="p-col-2">Valor</div>
+        <div class="p-col-2"><input type="text" pInputText [(ngModel)]="oportunidade.valor"></div>
+    </div>
+
+<div class="p-col-10 p-offset-2">
+    <button pButton type="submit"  label="Adicionar" (click) = "adcionar()"></button>
+</div>
+    
+</p-panel>
+<br />
+
+<p-table [value]="oportunidades">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Descrição</th>
+            <th>Prospecto</th>
+            <th>Valor</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-p>
+        <tr>
+            <td>{{ p.descricao }}</td>
+            <td>{{ p.nomeProspecto }}</td>
+            <td>{{ p.valor }}</td>
+        </tr>
+    </ng-template>
+
+</p-table>
+
+<p-toast></p-toast>
